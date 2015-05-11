@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.fzc.rhinooffice.common.view.InterceptScrollContainer 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrooll_Containter"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:focusable="false" >
+
+    <com.fzc.rhinooffice.common.view.HScrollView
+        android:id="@+id/horizontal_ScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_01"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Column2"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tv_02"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Column3"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tv_03"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Column4"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tv_04"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Column5"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+    </com.fzc.rhinooffice.common.view.HScrollView>
+
+</com.fzc.rhinooffice.common.view.InterceptScrollContainer>

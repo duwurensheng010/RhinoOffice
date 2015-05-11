@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="tabs_bg">#171719</color>
+    <color name="write">#ffffff</color>
+    <color name="theme_bg">#E7EBEF</color>
+    <color name="black">#000000</color>
+    
+    <color name="txt_write">#ffffff</color>
+    <color name="txt_gray">#D2D2D2</color>
+    <color name="txt_deep_gray">#666666</color>
+    
+    <color name="tab_text_color_normal">#535354</color>
+    <color name="tab_text_color_checked">#0079ff</color>
+    <color name="divider_line">#313439</color>
+    <color name="divider_line2">#09090A</color>
+    
+    <color name="btn_login_normal_bg">#2EA4FA</color>
+    <color name="btn_login_down_bg">#0C72BE</color>
+    <color name="txt_content_down">#dcdcdc</color>
+    <color name="main_title_bg">#257FE6</color>
+    <color name="sliding_head_bg">#2F4D62</color>
+    <color name="sliding_body_bg">#15191C</color>
+    <color name="list_header_bg">#2983E6</color>
+</resources>

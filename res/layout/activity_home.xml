@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.fzc.rhinooffice.common.view.MyRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_head"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/height_50"
+        android:layout_alignParentTop="true"
+        android:paddingTop="@dimen/padding_2"
+        android:paddingBottom="@dimen/padding_2"
+        android:background="@color/main_title_bg" >
+
+        <LinearLayout
+            android:id="@+id/ll_sliding"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/iv_sliding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/sliding" />
+
+            <ImageView
+                android:id="@+id/iv_user_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/user_icon" />
+        </LinearLayout>
+		
+        <ImageView
+            android:id="@+id/iv_registration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_5"
+            android:clickable="true"
+            android:src="@drawable/iv_registration_icon" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/bottom_tabs"
+        android:layout_below="@+id/rl_head"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_tabs"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/write"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider_line" />
+
+        <RadioGroup
+            android:id="@+id/rg_radioBtns"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="bottom"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rb_workbench"
+                style="@style/MainTabStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:drawableTop="@drawable/workbench_tab_icon"
+                android:text="@string/workbench" />
+
+            <RadioButton
+                android:id="@+id/rb_news"
+                style="@style/MainTabStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:drawableTop="@drawable/news_tab_icon"
+                android:text="@string/news" />
+
+            <RadioButton
+                android:id="@+id/rb_office"
+                style="@style/MainTabStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:drawableTop="@drawable/office_tab_icon"
+                android:text="@string/office" />
+
+            <RadioButton
+                android:id="@+id/rb_business"
+                style="@style/MainTabStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:drawableTop="@drawable/business_tab_icon"
+                android:text="@string/business" />
+
+            <RadioButton
+                android:id="@+id/rb_mall"
+                style="@style/MainTabStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:drawableTop="@drawable/mall_tab_icon"
+                android:text="@string/mall" />
+        </RadioGroup>
+    </LinearLayout>
+
+</com.fzc.rhinooffice.common.view.MyRelativeLayout>

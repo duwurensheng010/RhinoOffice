@@ -1,0 +1,178 @@
+<com.fzc.rhinooffice.common.view.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sliding_bg" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        
+        <RelativeLayout
+            android:id="@+id/rl_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="@dimen/padding_20"
+            android:paddingLeft="@dimen/padding_10"
+            android:paddingTop="@dimen/padding_20" >
+
+            <ImageView
+                android:id="@+id/iv_sliding_user_icon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/user_icon" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_2"
+                android:layout_toRightOf="@+id/iv_sliding_user_icon"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="admin"
+                    android:textColor="@color/txt_write"
+                    android:textSize="@dimen/text_15" />
+
+                <TextView
+                    android:id="@+id/tv_user_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:text="@string/admin"
+                    android:textColor="@color/txt_gray"
+                    android:textSize="@dimen/text_15" />
+            </LinearLayout>
+        </RelativeLayout>
+		
+        <View
+            android:id="@+id/divider_01"
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/rl_head"
+            android:background="@color/divider_line" />
+
+        <View
+            android:id="@+id/divider_02"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/divider_01"
+            android:background="@color/divider_line2" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/divider_02"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/ll_personal_settings"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="@dimen/padding_10"
+                android:background="@drawable/sliding_item_bg"
+                android:clickable="true"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/settings" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_5"
+                    android:text="@string/personal_settings"
+                    android:textColor="@color/txt_gray"
+                    android:textSize="@dimen/text_17" />
+            </LinearLayout>
+			
+            <LinearLayout
+                android:id="@+id/ll_change_pwd"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="@dimen/padding_10"
+                android:background="@drawable/sliding_item_bg"
+                android:clickable="true"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/pwd" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_5"
+                    android:text="@string/change_pwd"
+                    android:textColor="@color/txt_gray"
+                    android:textSize="@dimen/text_17" />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/ll_version_update"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="@dimen/padding_10"
+                android:background="@drawable/sliding_item_bg"
+                android:clickable="true"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/version_update" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_5"
+                    android:text="@string/version_update"
+                    android:textColor="@color/txt_gray"
+                    android:textSize="@dimen/text_17" />
+            </LinearLayout>
+            
+            
+            
+            <LinearLayout
+                android:id="@+id/ll_operator_information"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="@dimen/padding_10"
+                android:background="@drawable/sliding_item_bg"
+                android:clickable="true"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/operator" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_5"
+                    android:text="@string/operator_information"
+                    android:textColor="@color/txt_gray"
+                    android:textSize="@dimen/text_17" />
+            </LinearLayout>
+            
+        </LinearLayout>
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/rl_main_view"
+        layout="@layout/activity_home" />
+</com.fzc.rhinooffice.common.view.DragLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_50"
+    android:background="@color/list_header_bg" >
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:clickable="true"
+        android:src="@drawable/iv_back_icon" />
+	
+    <TextView 
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_back"
+        android:layout_toLeftOf="@+id/iv_filter"
+        android:layout_marginLeft="@dimen/margin_5"
+        android:layout_marginRight="@dimen/margin_5"
+        android:layout_centerVertical="true"
+        android:text="标题xxxx"
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:textSize="@dimen/text_15"
+        android:textColor="@color/txt_write"/>
+    
+    <TextView
+        android:id="@+id/tv_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:onClick="true"
+        android:text="@string/filter"
+        android:textColor="@color/txt_write"
+        android:textSize="@dimen/text_15"
+        android:textStyle="bold"
+        android:paddingRight="@dimen/padding_10"
+        android:gravity="right|center_vertical"
+        android:layout_marginRight="@dimen/margin_10"
+        android:background="@drawable/iv_filter_icon" />
+    
+</RelativeLayout>

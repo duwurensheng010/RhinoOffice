@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RhinoOffice</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="loading">玩命加载中，请稍后...</string>
+    
+    <string name="workbench">工作台</string>
+    <string name="news">消息</string>
+    <string name="office">办公</string>
+    <string name="business">业务</string>
+    <string name="mall">商城</string>
+    
+    <string name="app_exit_tip">再按一次退出程序！</string>
+    
+    <!-- 登录 -->
+    <string name="username_tip">用户名</string>
+    <string name="pwd_tip">密  码</string>
+    <string name="login_now">立即登录</string>
+    <string name="forget_pwd">忘记密码？|</string>
+    <string name="register_now">立即注册</string>
+    <string name="username_not_null">用户名不能为空！</string>
+    <string name="pwd_not_null">请输入密码！</string>
+    <string name="pwd_is_wrong">用户名和密码不匹配！</string>
+    <string name="logining">正在登录，请稍后...</string>
+    
+    <!-- 侧滑栏 -->
+    <string name="admin">系统管理员</string>
+    <string name="personal_settings">个人设置</string>
+    <string name="change_pwd">密码更换</string>
+    <string name="version_update">版本更新</string>
+    <string name="operator_information">操作员信息</string>
+    
+    <!-- 工作台 -->
+    <string name="email_tip">邮件提醒</string>
+    <string name="notice">公告通知</string>
+    <string name="tidings">新闻</string>
+    <string name="work_flow">工作流</string>
+    <string name="filter">筛选</string>
+    
+    <!-- 办公 -->
+    <string name="internal_mail">内部邮件</string>
+    <string name="personal_folders">个人文件柜</string>
+    <string name="internal_sms">内部短信</string>
+    <string name="positioning_sign">定位签到</string>
+    <string name="funding_schedule">资金计划表</string>
+</resources>

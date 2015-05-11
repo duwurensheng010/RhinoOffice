@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_bg" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/height_120"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:id="@+id/rl_office_email"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_office_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/office_email" />
+
+                <TextView
+                    android:id="@+id/tv_email_unread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/iv_office_email"
+                    android:layout_alignTop="@+id/iv_office_email"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/office_reddot"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/write"
+                    android:textSize="@dimen/text_13" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_office_email"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:text="@string/internal_mail"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_13" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/office_vertical_line" />
+
+            <RelativeLayout
+                android:id="@+id/rl_office_notice"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_office_notice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/office_notice" />
+
+                <TextView
+                    android:id="@+id/tv_notice_unread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/iv_office_notice"
+                    android:layout_alignTop="@+id/iv_office_notice"
+                    android:background="@drawable/office_reddot"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/write"
+                    android:textSize="@dimen/text_13" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_office_notice"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:text="@string/notice"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_13" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/office_vertical_line" />
+
+            <RelativeLayout
+                android:id="@+id/rl_office_tidings"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_office_tidings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/office_tidings" />
+
+                <TextView
+                    android:id="@+id/tv_tidings_unread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/iv_office_tidings"
+                    android:layout_alignTop="@+id/iv_office_tidings"
+                    android:background="@drawable/office_reddot"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/write"
+                    android:textSize="@dimen/text_13" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_office_tidings"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:text="@string/tidings"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_13" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/office_horizontal_line" />
+
+        <LinearLayout
+            android:id="@+id/ll_workflow"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_10" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/office_workflow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:text="@string/work_flow"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_13" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/divider_line" />
+
+        <LinearLayout
+            android:id="@+id/ll_personal_folders"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_10" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/office_personal_folders" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:text="@string/personal_folders"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_13" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/divider_line" />
+
+        <LinearLayout
+            android:id="@+id/ll_internal_sms"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_10" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/office_internal_sms" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:text="@string/internal_sms"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_13" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/divider_line" />
+
+        <LinearLayout
+            android:id="@+id/ll_positioning_sign"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_10" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/office_positioning_sign" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:text="@string/positioning_sign"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_13" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/divider_line" />
+
+        <LinearLayout
+            android:id="@+id/ll_funding_schedule"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_10" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/office_funding_schedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:text="@string/funding_schedule"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_13" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/divider_line" />
+    </LinearLayout>
+
+</ScrollView>
