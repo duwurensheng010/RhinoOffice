@@ -4,6 +4,7 @@
     android:id="@+id/scrooll_Containter"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
     android:focusable="false" >
 
     <com.fzc.rhinooffice.common.view.HScrollView
@@ -21,38 +22,65 @@
 
             <TextView
                 android:id="@+id/tv_01"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Column2"
+                android:layout_width="@dimen/height_100"
+                android:layout_height="@dimen/height_50"
+                android:paddingLeft="@dimen/padding_5"
+                android:paddingRight="@dimen/padding_5"
+                android:gravity="center"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
+			
+            <View 
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/mail_list_line1"/>
+            <View 
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/mail_list_line2"/>
+            
             <TextView
                 android:id="@+id/tv_02"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Column3"
+                android:layout_width="@dimen/height_100"
+                android:layout_height="@dimen/height_50"
+                android:paddingLeft="@dimen/padding_5"
+                android:paddingRight="@dimen/padding_5"
+                android:gravity="center"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
+			
+            <View 
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/mail_list_line1"/>
+            <View 
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/mail_list_line2"/>
+            
             <TextView
                 android:id="@+id/tv_03"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Column4"
+                android:layout_width="@dimen/height_100"
+                android:layout_height="@dimen/height_50"
+                android:paddingLeft="@dimen/padding_5"
+                android:paddingRight="@dimen/padding_5"
+                android:gravity="center"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
+			
+            <View 
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/mail_list_line1"/>
+            <View 
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/mail_list_line2"/>
+            
             <TextView
                 android:id="@+id/tv_04"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Column5"
+                android:layout_width="@dimen/height_100"
+                android:layout_height="@dimen/height_50"
+                android:paddingLeft="@dimen/padding_5"
+                android:paddingRight="@dimen/padding_5"
+                android:gravity="center"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
     </com.fzc.rhinooffice.common.view.HScrollView>

@@ -45,4 +45,10 @@
     <string name="internal_sms">内部短信</string>
     <string name="positioning_sign">定位签到</string>
     <string name="funding_schedule">资金计划表</string>
+    
+    <!-- 邮件列表 -->
+    <string name="sequence">序号</string>
+    <string name="from">发件人</string>
+    <string name="subject">标题</string>
+    <string name="send_time">发件时间</string>
 </resources>

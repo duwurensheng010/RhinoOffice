@@ -10,9 +10,9 @@ import android.view.MotionEvent;
 import android.widget.HorizontalScrollView;
 
 /*
- * �Զ���� �����ؼ�
- * ������ onScrollChanged���������仯��,����ÿ�εı仯֪ͨ�� �۲�(�˱仯��)�۲���
- * ��ʹ�� AddOnScrollChangedListener �����ı��ؼ��� �������仯
+ * 自定义的 滚动控件
+ * 重载了 onScrollChanged（滚动条变化）,监听每次的变化通知给 观察(此变化的)观察者
+ * 可使用 AddOnScrollChangedListener 来订阅本控件的 滚动条变化
  * */
 public class HScrollView extends HorizontalScrollView {
 	ScrollViewObserver mScrollViewObserver = new ScrollViewObserver();
@@ -41,7 +41,7 @@ public class HScrollView extends HorizontalScrollView {
 	@Override
 	protected void onScrollChanged(int l, int t, int oldl, int oldt) {
 		/*
-		 * ���������ƶ����� �����¼���֪ͨ��۲��ߣ��۲��߻ᴫ�������ġ�
+		 * 当滚动条移动后，引发 滚动事件。通知给观察者，观察者会传达给其他的。
 		 */
 		if (mScrollViewObserver != null /*&& (l != oldl || t != oldt)*/) {
 			mScrollViewObserver.NotifyOnScrollChanged(l, t, oldl, oldt);
@@ -50,28 +50,28 @@ public class HScrollView extends HorizontalScrollView {
 	}
 
 	/*
-	 * ���� ���ؼ� �� �������仯�¼�
+	 * 订阅 本控件 的 滚动条变化事件
 	 * */
 	public void AddOnScrollChangedListener(OnScrollChangedListener listener) {
 		mScrollViewObserver.AddOnScrollChangedListener(listener);
 	}
 
 	/*
-	 * ȡ�� ���� ���ؼ� �� �������仯�¼�
+	 * 取消 订阅 本控件 的 滚动条变化事件
 	 * */
 	public void RemoveOnScrollChangedListener(OnScrollChangedListener listener) {
 		mScrollViewObserver.RemoveOnScrollChangedListener(listener);
 	}
 
 	/*
-	 * �������˹����¼�ʱ
+	 * 当发生了滚动事件时
 	 */
 	public static interface OnScrollChangedListener {
 		public void onScrollChanged(int l, int t, int oldl, int oldt);
 	}
 
 	/*
-	 * �۲���
+	 * 观察者
 	 */
 	public static class ScrollViewObserver {
 		List<OnScrollChangedListener> mList;

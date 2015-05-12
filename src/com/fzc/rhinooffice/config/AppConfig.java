@@ -8,5 +8,6 @@ package com.fzc.rhinooffice.config;
 public class AppConfig {
 	public static final String APPKEY = "lxapp";
 	public static final String APPSECRET = "SFSTWET3252FDS74578";
+	public static final String userid = "test";
 	public static final int HTTP_TIMEOUT = 5000;
 }

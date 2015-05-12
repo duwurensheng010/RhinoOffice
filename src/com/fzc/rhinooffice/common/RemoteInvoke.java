@@ -31,6 +31,7 @@ public class RemoteInvoke {
 		}
 		params.addBodyParameter("appkey", AppConfig.APPKEY);
 		params.addBodyParameter("appsecret", AppConfig.APPSECRET);
+		params.addBodyParameter("userid", username);
 		params.addBodyParameter("data", jsonObject.toString());
 		http.configSoTimeout(AppConfig.HTTP_TIMEOUT);	//设置请求超时
 		http.send(HttpRequest.HttpMethod.POST,
@@ -69,6 +70,65 @@ public class RemoteInvoke {
 						}else{
 							msg.what = -1;
 							msg.obj = "登录失败！";
+							mHandler.sendMessage(msg);
+						} 
+
+					}
+				});
+	}
+	
+	public static void email(final Handler mHandler,String data1,String data2,String subject,int page){
+		HttpUtils http = new HttpUtils();
+		RequestParams params = new RequestParams();
+		JSONObject jsonObject = new JSONObject();
+		try {
+			jsonObject.put("data1", data1);
+			jsonObject.put("data2", data2);
+			jsonObject.put("subject", subject);
+			jsonObject.put("page", page);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		params.addBodyParameter("appkey", AppConfig.APPKEY);
+		params.addBodyParameter("appsecret", AppConfig.APPSECRET);
+		params.addBodyParameter("data", jsonObject.toString());
+		http.configSoTimeout(AppConfig.HTTP_TIMEOUT);	//设置请求超时
+		http.send(HttpRequest.HttpMethod.POST,
+				"http://www.gzlxsoft.com:899/app/email/", params,
+				new RequestCallBack<String>() {
+			
+					Message msg = mHandler.obtainMessage();
+					@Override
+					public void onFailure(HttpException error, String result) {
+						msg.what = -1;
+						msg.obj = result;
+						mHandler.sendMessage(msg);
+					}
+
+					@Override
+					public void onSuccess(ResponseInfo<String> responseInfo) {
+
+						if (responseInfo != null) {
+							JSONObject jsonObject = null;
+							try {
+								jsonObject = new JSONObject(responseInfo.result);
+								if((jsonObject.getInt("state"))==0){
+									msg.what = -2;
+									msg.obj = jsonObject.getString("reason");
+								}else{
+									msg.what = 2;
+									msg.obj = jsonObject;
+								}
+							} catch (JSONException e) {
+								jsonObject = new JSONObject();
+								e.printStackTrace();
+							}finally{
+								mHandler.sendMessage(msg);
+							}
+							
+						}else{
+							msg.what = -2;
+							msg.obj = "获取邮件列表失败！";
 							mHandler.sendMessage(msg);
 						} 
 

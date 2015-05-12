@@ -21,4 +21,7 @@
     <color name="sliding_head_bg">#2F4D62</color>
     <color name="sliding_body_bg">#15191C</color>
     <color name="list_header_bg">#2983E6</color>
+    
+    <color name="mail_list_line1">#9E9E9E</color>
+    <color name="mail_list_line2">#FFFFFF</color>
 </resources>
