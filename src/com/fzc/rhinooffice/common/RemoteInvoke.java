@@ -14,10 +14,12 @@ import com.lidroid.xutils.http.RequestParams;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
+import com.lidroid.xutils.util.LogUtils;
 
 public class RemoteInvoke {
 	
 	public static void login(final Handler mHandler,String username,String pwd){
+		LogUtils.e("username="+username+"-----pwd=="+pwd);
 		HttpUtils http = new HttpUtils();
 		RequestParams params = new RequestParams();
 		JSONObject jsonObject = new JSONObject();

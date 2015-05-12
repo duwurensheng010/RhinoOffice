@@ -36,16 +36,9 @@ public class JsonUtil {
 			temp = null;
 		} catch (JSONException e1) {
 			e1.printStackTrace();
-			return null;
+			return user;
 		}
 
-		/*
-		 * try { ObjectMapper objectMapper = new ObjectMapper(); user =
-		 * objectMapper.readValue(json, User.class); } catch (JsonParseException
-		 * e) { e.printStackTrace(); return null; } catch (JsonMappingException
-		 * e) { e.printStackTrace(); return null; } catch (IOException e) {
-		 * e.printStackTrace(); return null; }
-		 */
 
 		return user;
 	}
@@ -53,18 +46,19 @@ public class JsonUtil {
 	// 用户信息
 	public static Email analysis_email(String json) {
 		Email email = null;
+		Email defaultEmail = new Email();
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
 			email = objectMapper.readValue(json, Email.class);
 		} catch (JsonParseException e) {
 			e.printStackTrace();
-			return null;
+			return defaultEmail;
 		} catch (JsonMappingException e) {
 			e.printStackTrace();
-			return null;
+			return defaultEmail;
 		} catch (IOException e) {
 			e.printStackTrace();
-			return null;
+			return defaultEmail;
 		}
 
 		return email;
@@ -73,46 +67,48 @@ public class JsonUtil {
 	//通知信息
 	public static Notify analysis_notify(String json) {
 		Notify notify = null;
+		Notify defaultNotify = new Notify();
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
 			notify = objectMapper.readValue(json, Notify.class);
 		} catch (JsonParseException e) {
 			e.printStackTrace();
-			return null;
+			return defaultNotify;
 		} catch (JsonMappingException e) {
 			e.printStackTrace();
-			return null;
+			return defaultNotify;
 		} catch (IOException e) {
 			e.printStackTrace();
-			return null;
+			return defaultNotify;
 		}
 
 		return notify;
 	}
 	
 	public static News analysis_news(String json) {
-		System.out.println("--analysis_news--->>"+json);
 		News news = null;
+		News defaultNews = new News();
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
 			news = objectMapper.readValue(json, News.class);
 		} catch (JsonParseException e) {
 			e.printStackTrace();
-			return null;
+			return defaultNews;
 		} catch (JsonMappingException e) {
 			e.printStackTrace();
-			return null;
+			return defaultNews;
 		} catch (IOException e) {
 			e.printStackTrace();
-			return null;
+			return defaultNews;
 		}
 
 		return news;
 	}
 	
+	//解析工作流类
 	public static Flow analysis_flow(String json) {
-		System.out.println("--analysis_news--->>"+json);
 		Flow flow = null;
+		Flow defaultFlow = new Flow();
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
 			flow = objectMapper.readValue(json, Flow.class);
@@ -130,9 +126,10 @@ public class JsonUtil {
 		return flow;
 	}
 	
+	//解析业务类
 	public static Business analysis_business(String json) {
-		System.out.println("--Business--->>"+json);
 		Business business = null;
+		Business defaultBusiness = new Business();
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
 			business = objectMapper.readValue(json, Business.class);

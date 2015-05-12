@@ -436,7 +436,7 @@
                         android:layout_centerInParent="true"
                         android:text="昨天"
                         android:textColor="@color/txt_deep_gray"
-                        android:textSize="@dimen/text_13" />
+                        android:textSize="@dimen/text_17" />
                 </RelativeLayout>
 
                 <TextView

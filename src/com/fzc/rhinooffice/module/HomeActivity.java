@@ -212,7 +212,7 @@ public class HomeActivity extends FragmentActivity implements
 			}
 		});
 	}
-
+	
 
 	private void listener() {
 
@@ -227,6 +227,7 @@ public class HomeActivity extends FragmentActivity implements
 	
 	//读取数据库中的用户信息，自动登录
 	private void initUser(){
+		LogUtils.e("homeActivity  initUser");
 		customProgress = CustomProgress.init(this, getResources().getString(R.string.loading), false, null);
 		UserLogin userLogin = DBUtil.findFirstUserLogin(this);
 		if(userLogin!=null){
@@ -237,7 +238,9 @@ public class HomeActivity extends FragmentActivity implements
 	
 	//登录成功后初始化显示信息
 	private void initUI() {
+		//System.out.println("------homeActivity---initUI---");
 		tv_user_name.setText(SysApplication.user.A_USER_NAME);
+		workbenchFragment.initUI();
 		
 	}
 	
@@ -325,22 +328,22 @@ public class HomeActivity extends FragmentActivity implements
 
 	@OnClick(R.id.ll_personal_settings)
 	private void Setting(View v) {
-		// ����
+		//个人设置
 	}
 
 	@OnClick(R.id.ll_change_pwd)
 	private void changePwd(View v) {
-		// �޸�����
+		// 修改密码
 	}
 
 	@OnClick(R.id.ll_version_update)
 	private void versionUpdate(View v) {
-		// �汾����
+		// 版本更新
 	}
 
 	@OnClick(R.id.ll_operator_information)
 	private void checkOperaterInfo(View v) {
-		// �鿴������Ա��Ϣ
+		// 操作员信息
 	}
 
 	private void shake() {
@@ -352,7 +355,7 @@ public class HomeActivity extends FragmentActivity implements
 	 * 隐藏fragment
 	 * 
 	 * @param transaction
-	 *            ���ڶ�Fragmentִ�в���������
+	 *            
 	 */
 	private void hideFragments(FragmentTransaction transaction) {
 		if (workbenchFragment != null) {
