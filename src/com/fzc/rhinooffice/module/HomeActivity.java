@@ -317,11 +317,11 @@ public class HomeActivity extends FragmentActivity implements
 	@OnClick(R.id.iv_registration)
 	private void registration(View v) {
 		LogUtils.i("---签到----");
-		if(!SysApplication.isLogin){
+		/*if(!SysApplication.isLogin){
 			mIntent = new Intent(this,LoginActivity.class);
 			startActivity(mIntent);
 			return;
-		}
+		}*/
 		
 		// dl.open();
 	}

@@ -104,14 +104,15 @@ public class LoginActivity extends BaseActivity {
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				//mIntent = new Intent(LoginActivity.this,HomeActivity.class);
-				//startActivity(mIntent);
 				
 				//将登录信息保存到数据库中
 				UserLogin userLogin = new UserLogin();
 				userLogin.username = username;
 				userLogin.pwd = pwd;
 				DBUtil.saveUser(LoginActivity.this, userLogin);
+				
+				mIntent = new Intent(LoginActivity.this,HomeActivity.class);
+				startActivity(mIntent);
 				
 				finish();
 				SysApplication.isLogin = true;
