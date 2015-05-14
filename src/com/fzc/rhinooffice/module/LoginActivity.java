@@ -8,6 +8,7 @@ import com.fzc.rhinooffice.common.RemoteInvoke;
 import com.fzc.rhinooffice.common.SysApplication;
 import com.fzc.rhinooffice.common.utils.DBUtil;
 import com.fzc.rhinooffice.common.utils.JsonUtil;
+import com.fzc.rhinooffice.common.utils.StringUtil;
 import com.fzc.rhinooffice.common.view.CustomProgress;
 import com.fzc.rhinooffice.config.AppConfig;
 import com.fzc.rhinooffice.module.entity.Business;
@@ -92,7 +93,6 @@ public class LoginActivity extends BaseActivity {
 				String result = null;
 				try {
 					result = jsonObject.getString("reason");
-					//SysApplication.a_sessid = jsonObject.getJSONObject("login").getString("a_sessid");
 					SysApplication.user = JsonUtil.analysis_user(jsonObject.getString("login"));
 					SysApplication.email = JsonUtil.analysis_email(jsonObject.getString("email"));
 					SysApplication.notify = JsonUtil.analysis_notify(jsonObject.getString("notify"));
@@ -116,12 +116,12 @@ public class LoginActivity extends BaseActivity {
 				
 				finish();
 				SysApplication.isLogin = true;
-				Toast.makeText(LoginActivity.this,result, Toast.LENGTH_LONG).show();
+				StringUtil.showToast(getApplicationContext(), result);
 				break;
 
 			case -1:
 				//登录失败
-				Toast.makeText(LoginActivity.this, msg.obj.toString(), Toast.LENGTH_LONG).show();
+				StringUtil.showToast(getApplicationContext(), msg.obj.toString());
 				break;
 			}
 		};
@@ -132,15 +132,13 @@ public class LoginActivity extends BaseActivity {
 		username = edt_username_input.getText() + "";
 		pwd = edt_pwd_input.getText() + "";
 		if (username.isEmpty()) {
-			Toast.makeText(this, R.string.username_not_null, Toast.LENGTH_SHORT)
-					.show();
+			StringUtil.showToast(getApplicationContext(), getResources().getString(R.string.username_not_null));
 			edt_username_input.findFocus();
 			return;
 		}
 
 		if (pwd.isEmpty()) {
-			Toast.makeText(this, R.string.pwd_not_null, Toast.LENGTH_SHORT)
-					.show();
+			StringUtil.showToast(getApplicationContext(), getResources().getString(R.string.pwd_not_null));
 			edt_pwd_input.findFocus();
 			return;
 		}
@@ -150,59 +148,6 @@ public class LoginActivity extends BaseActivity {
 		customProgress.show();
 		RemoteInvoke.login(mHandler, username,pwd);
 		
-		/*RequestParams params = new RequestParams();
-		JSONObject jsonObject = new JSONObject();
-		try {
-			jsonObject.put("userid", username);
-			jsonObject.put("passwd", pwd);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-		params.addBodyParameter("appkey", AppConfig.APPKEY);
-		params.addBodyParameter("appsecret", AppConfig.APPSECRET);
-		params.addBodyParameter("data", jsonObject.toString());
-		http.configSoTimeout(AppConfig.HTTP_TIMEOUT);	//设置请求超时
-		http.send(HttpRequest.HttpMethod.POST,
-				"http://www.gzlxsoft.com:899/app/log/", params,
-				new RequestCallBack<String>() {
-			
-					Message msg = mHandler.obtainMessage();
-					@Override
-					public void onFailure(HttpException error, String result) {
-						msg.what = -1;
-						msg.obj = result;
-						mHandler.sendMessage(msg);
-					}
-
-					@Override
-					public void onSuccess(ResponseInfo<String> responseInfo) {
-
-						if (responseInfo != null) {
-							JSONObject jsonObject = null;
-							try {
-								jsonObject = new JSONObject(responseInfo.result);
-								if((jsonObject.getInt("state"))==0){
-									msg.what = -1;
-									msg.obj = jsonObject.getString("reason");
-								}else{
-									msg.what = 1;
-									msg.obj = jsonObject;
-								}
-							} catch (JSONException e) {
-								jsonObject = new JSONObject();
-								e.printStackTrace();
-							}finally{
-								mHandler.sendMessage(msg);
-							}
-							
-						}else{
-							msg.what = -1;
-							msg.obj = "登录失败！";
-							mHandler.sendMessage(msg);
-						} 
-
-					}
-				});*/
 	}
 
 	

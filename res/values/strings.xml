@@ -32,6 +32,7 @@
     <string name="change_pwd">密码更换</string>
     <string name="version_update">版本更新</string>
     <string name="operator_information">操作员信息</string>
+    <string name="exit">退出</string>
     
     <!-- 工作台 -->
     <string name="email_tip">邮件提醒</string>

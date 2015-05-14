@@ -8,6 +8,7 @@ import com.fzc.rhinooffice.common.RemoteInvoke;
 import com.fzc.rhinooffice.common.SysApplication;
 import com.fzc.rhinooffice.common.utils.DBUtil;
 import com.fzc.rhinooffice.common.utils.JsonUtil;
+import com.fzc.rhinooffice.common.utils.StringUtil;
 import com.fzc.rhinooffice.common.view.CustomProgress;
 import com.fzc.rhinooffice.common.view.DragLayout;
 import com.fzc.rhinooffice.common.view.MyRelativeLayout;
@@ -83,7 +84,7 @@ public class HomeActivity extends FragmentActivity implements
 	@ViewInject(R.id.ll_version_update)
 	private LinearLayout ll_version_update;
 
-	@ViewInject(R.id.ll_operator_information)
+	@ViewInject(R.id.ll_exit)
 	private LinearLayout ll_operator_information;
 
 	//主页布局
@@ -166,13 +167,13 @@ public class HomeActivity extends FragmentActivity implements
 				}
 				
 				SysApplication.isLogin = true;
-				Toast.makeText(HomeActivity.this,result, Toast.LENGTH_LONG).show();
+				StringUtil.showToast(getApplicationContext(), result);
 				initUI();
 				break;
 
 			case -1:
 				//登录失败
-				Toast.makeText(HomeActivity.this, msg.obj.toString(), Toast.LENGTH_LONG).show();
+				StringUtil.showToast(getApplicationContext(), msg.obj.toString());
 				break;
 			}
 		}
@@ -335,9 +336,19 @@ public class HomeActivity extends FragmentActivity implements
 		// 版本更新
 	}
 
-	@OnClick(R.id.ll_operator_information)
-	private void checkOperaterInfo(View v) {
-		// 操作员信息
+	@OnClick(R.id.ll_exit)
+	private void exit(View v) {
+		// 退出
+		UserLogin userLogin = DBUtil.findFirstUserLogin(this);
+		if(userLogin!=null){
+			DBUtil.deleteUser(this, userLogin);
+			mIntent = new Intent(this,LoginActivity.class);
+			startActivity(mIntent);
+			finish();
+		}else{
+			StringUtil.showToast(this, "您尚未登录！");
+		}
+		
 	}
 
 	private void shake() {

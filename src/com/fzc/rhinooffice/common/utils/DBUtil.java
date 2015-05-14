@@ -8,13 +8,14 @@ import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.exception.DbException;
 
 public class DBUtil {
-	
-	public static boolean saveUser(Context context,UserLogin userLogin){
-		
-		if(findUserLogin(context,userLogin)){
+
+	// 保存用户登录信息
+	public static boolean saveUser(Context context, UserLogin userLogin) {
+
+		if (findUserLogin(context, userLogin)) {
 			return true;
 		}
-		
+
 		DbUtils db = DbUtils.create(context);
 		try {
 			db.save(userLogin);
@@ -24,33 +25,52 @@ public class DBUtil {
 		}
 		return true;
 	}
-	
-	public static boolean findUserLogin(Context context,UserLogin userLogin){
+
+	// 保存用户登录信息
+	public static boolean deleteUser(Context context, UserLogin userLogin) {
+
+		if (findUserLogin(context, userLogin)) {
+			return true;
+		}
+
 		DbUtils db = DbUtils.create(context);
-		UserLogin temp = null;
 		try {
-			temp = db.findFirst(Selector.from(UserLogin.class).where("username", "=",userLogin.username));
+			db.delete(userLogin);
 		} catch (DbException e) {
 			e.printStackTrace();
 			return false;
 		}
-		if(temp==null){
-			return false; 
-		}else{
+		return true;
+	}
+
+	public static boolean findUserLogin(Context context, UserLogin userLogin) {
+		DbUtils db = DbUtils.create(context);
+		UserLogin temp = null;
+		try {
+			temp = db.findFirst(Selector.from(UserLogin.class).where(
+					"username", "=", userLogin.username));
+		} catch (DbException e) {
+			e.printStackTrace();
+			return false;
+		}
+		if (temp == null) {
+			return false;
+		} else {
 			return true;
 		}
 	}
-	
-	public static UserLogin findFirstUserLogin(Context context){
+
+	public static UserLogin findFirstUserLogin(Context context) {
 		DbUtils db = DbUtils.create(context);
 		UserLogin userLogin = null;
 		try {
-			userLogin = db.findFirst(Selector.from(UserLogin.class).where("username", "!=",null));
+			userLogin = db.findFirst(Selector.from(UserLogin.class).where(
+					"username", "!=", null));
 		} catch (DbException e) {
 			e.printStackTrace();
 			return null;
 		}
 		return userLogin;
 	}
-	
+
 }
