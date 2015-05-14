@@ -11,7 +11,7 @@ public class News implements Serializable{
 	public int news_id;
 
 	// 新闻标题
-	public String news_subject;
+	public String subject;
 
 	// 发布时间
 	public String news_time;

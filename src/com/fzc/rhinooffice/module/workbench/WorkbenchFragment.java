@@ -2,6 +2,7 @@ package com.fzc.rhinooffice.module.workbench;
 
 import com.fzc.rhinooffice.R;
 import com.fzc.rhinooffice.common.SysApplication;
+import com.fzc.rhinooffice.common.utils.StringUtil;
 import com.fzc.rhinooffice.module.entity.Business;
 import com.fzc.rhinooffice.module.entity.Email;
 import com.fzc.rhinooffice.module.entity.Flow;
@@ -100,30 +101,46 @@ public class WorkbenchFragment extends Fragment {
 		return view;
 	}
 
+	//邮件列表
 	@OnClick(R.id.ll_email)
 	private void checkEmail(View v) {
 
 		if (mIntent == null) {
 			mIntent = new Intent();
 		}
-		mIntent.setClass(getActivity(), MailListActivity.class);
+		mIntent.setClass(getActivity(), EmailListActivity.class);
 		startActivity(mIntent);
 
 	}
-
+	
+	//公告通知
 	@OnClick(R.id.ll_notice)
 	private void checkNotice(View v) {
-
+		if (mIntent == null) {
+			mIntent = new Intent();
+		}
+		mIntent.setClass(getActivity(), NotifyListActivity.class);
+		startActivity(mIntent);
 	}
-
+	
+	//新闻
 	@OnClick(R.id.ll_tidings)
 	private void checkTidings(View v) {
-
+		if (mIntent == null) {
+			mIntent = new Intent();
+		}
+		mIntent.setClass(getActivity(), NotifyListActivity.class);
+		startActivity(mIntent);
 	}
-
+	
+	//工作流
 	@OnClick(R.id.ll_workflow)
 	private void checkWorkflow(View v) {
-
+		if (mIntent == null) {
+			mIntent = new Intent();
+		}
+		mIntent.setClass(getActivity(), NotifyListActivity.class);
+		startActivity(mIntent);
 	}
 
 	public void initUI() {
@@ -136,16 +153,16 @@ public class WorkbenchFragment extends Fragment {
 			tv_email_unread.setVisibility(View.GONE);
 		}
 
-		if (email.email_subject == null || "".equals(email.email_subject)) {
+		if (StringUtil.isEmpty(email.subject)) {
 			tv_email_desc.setText("未知");
 		} else {
-			tv_email_desc.setText(email.email_subject);
+			tv_email_desc.setText(email.subject);
 		}
 
-		if (email.email_time == null || "".equals(email.email_time)) {
+		if (StringUtil.isEmpty(email.send_time)) {
 			tv_email_time.setText("未知");
 		} else {
-			tv_email_time.setText(email.email_time);
+			tv_email_time.setText(email.send_time);
 		}
 
 		Notify notify = SysApplication.notify;
@@ -157,16 +174,16 @@ public class WorkbenchFragment extends Fragment {
 			tv_notice_unread.setVisibility(View.GONE);
 		}
 
-		if (notify.notify_subject == null || "".equals(notify.notify_subject)) {
+		if (StringUtil.isEmpty(notify.subject)) {
 			tv_notice_desc.setText("未知");
 		} else {
-			tv_notice_desc.setText(notify.notify_subject);
+			tv_notice_desc.setText(notify.subject);
 		}
 
-		if (notify.notify_time == null || "".equals(notify.notify_time)) {
+		if (StringUtil.isEmpty(notify.begin_date)) {
 			tv_notice_time.setText("未知");
 		} else {
-			tv_notice_time.setText(notify.notify_time);
+			tv_notice_time.setText(notify.begin_date);
 		}
 
 		News news = SysApplication.news;
@@ -178,13 +195,13 @@ public class WorkbenchFragment extends Fragment {
 			tv_tidings_unread.setVisibility(View.GONE);
 		}
 
-		if (news.news_subject == null || "".equals(news.news_subject)) {
+		if (StringUtil.isEmpty(news.subject)) {
 			tv_tidings_desc.setText("未知");
 		} else {
-			tv_tidings_desc.setText(news.news_subject);
+			tv_tidings_desc.setText(news.subject);
 		}
 
-		if (news.news_time == null || "".equals(news.news_time)) {
+		if (StringUtil.isEmpty(news.news_time)) {
 			tv_tidings_time.setText("未知");
 		} else {
 			tv_tidings_time.setText(news.news_time);
@@ -198,16 +215,16 @@ public class WorkbenchFragment extends Fragment {
 			tv_workflow_unread.setVisibility(View.GONE);
 		}
 
-		if (flow.flow_subject == null || "".equals(flow.flow_subject)) {
+		if (StringUtil.isEmpty(flow.subject)) {
 			tv_workflow_desc.setText("未知");
 		} else {
-			tv_workflow_desc.setText(flow.flow_subject);
+			tv_workflow_desc.setText(flow.subject);
 		}
 
-		if (flow.flow_prcs_time == null || "".equals(flow.flow_prcs_time)) {
+		if (StringUtil.isEmpty(flow.prcs_time)) {
 			tv_workflow_time.setText("未知");
 		} else {
-			tv_workflow_time.setText(flow.flow_prcs_time);
+			tv_workflow_time.setText(flow.prcs_time);
 		}
 		
 		Business business = SysApplication.business;

@@ -11,6 +11,7 @@
     <string name="office">办公</string>
     <string name="business">业务</string>
     <string name="mall">商城</string>
+    <string name="registration">签到</string>
     
     <string name="app_exit_tip">再按一次退出程序！</string>
     
@@ -51,4 +52,7 @@
     <string name="from">发件人</string>
     <string name="subject">标题</string>
     <string name="send_time">发件时间</string>
+    
+    <!-- 通知列表 -->
+    <string name="notify_type">通知类型</string>
 </resources>

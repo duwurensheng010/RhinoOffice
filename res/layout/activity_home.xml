@@ -10,9 +10,9 @@
         android:layout_width="fill_parent"
         android:layout_height="@dimen/height_50"
         android:layout_alignParentTop="true"
-        android:paddingTop="@dimen/padding_2"
+        android:background="@color/main_title_bg"
         android:paddingBottom="@dimen/padding_2"
-        android:background="@color/main_title_bg" >
+        android:paddingTop="@dimen/padding_2" >
 
         <LinearLayout
             android:id="@+id/ll_sliding"
@@ -32,20 +32,27 @@
                 android:id="@+id/iv_user_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="@dimen/margin_5"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin_5"
                 android:src="@drawable/user_icon" />
         </LinearLayout>
-		
-        <ImageView
-            android:id="@+id/iv_registration"
+
+        <TextView
+            android:id="@+id/tv_registration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/margin_5"
-            android:clickable="true"
-            android:src="@drawable/iv_registration_icon" />
+            android:layout_marginRight="@dimen/margin_10"
+            android:background="@drawable/iv_registration_icon"
+            android:gravity="right|center_vertical"
+            android:onClick="true"
+            android:paddingRight="@dimen/padding_10"
+            android:text="@string/registration"
+            android:textColor="@color/txt_write"
+            android:textSize="@dimen/text_20"
+            android:textStyle="bold" />
+
     </RelativeLayout>
 
     <LinearLayout

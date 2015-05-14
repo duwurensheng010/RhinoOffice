@@ -14,10 +14,10 @@ public class Flow implements Serializable{
 	public int flow_sl;
 
 	// 打开工作流要返回的
-	public int flow_run_id;
+	public int run_id;
 
 	// 打开工作流要返回的
-	public int flow_prcs_id;
+	public int prcs_id;
 
 	// 打开工作流要返回的
 	public int flow_prcs;
@@ -25,9 +25,9 @@ public class Flow implements Serializable{
 	public int flow_id;
 	
 	//工作流标题
-	public String flow_subject;
+	public String subject;
 	
 	//工作流开始时间
-	public String flow_prcs_time;
+	public String prcs_time;
 
 }

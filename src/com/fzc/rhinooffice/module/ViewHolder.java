@@ -12,29 +12,45 @@ import android.widget.TextView;
 public class ViewHolder {
 
 	private SparseArray<View> views;
-	private int postion;
+	private int position;
 	private View mConvertView;
 
 	public ViewHolder(Context context, ViewGroup parent, int layoutId,
 			int position) {
-		this.postion = position;
+		this.position = position;
 		views = new SparseArray<View>();
 		mConvertView = LayoutInflater.from(context).inflate(layoutId, parent,
 				false);
 		mConvertView.setTag(this);
 	}
 
+	/**
+	 * 拿到一个ViewHolder对象
+	 * 
+	 * @param context
+	 * @param convertView
+	 * @param parent
+	 * @param layoutId
+	 * @param position
+	 * @return
+	 */
 	public static ViewHolder get(Context context, View convertView,
 			ViewGroup parent, int layoutId, int position) {
 		if (convertView == null) {
 			return new ViewHolder(context, parent, layoutId, position);
 		} else {
 			ViewHolder holder = (ViewHolder) convertView.getTag();
-			holder.postion = position;
+			holder.position = position;
 			return holder;
 		}
 	}
 
+	/**
+	 * 通过控件的Id获取对于的控件，如果没有则加入views
+	 * 
+	 * @param viewId
+	 * @return
+	 */
 	public <T extends View> T getView(int viewId) {
 		View view = views.get(viewId);
 		if (view == null) {
@@ -49,7 +65,7 @@ public class ViewHolder {
 	}
 
 	/**
-	 * ΪTextView�����ַ�
+	 * 为TextView设置字符串
 	 * 
 	 * @param viewId
 	 * @param text
@@ -62,7 +78,7 @@ public class ViewHolder {
 	}
 
 	/**
-	 * ΪImageView����ͼƬ
+	 * 为ImageView设置图片
 	 * 
 	 * @param viewId
 	 * @param drawableId
@@ -76,7 +92,7 @@ public class ViewHolder {
 	}
 
 	/**
-	 * ΪImageView����ͼƬ
+	 * 为ImageView设置图片
 	 * 
 	 * @param viewId
 	 * @param drawableId
@@ -86,5 +102,9 @@ public class ViewHolder {
 		ImageView view = getView(viewId);
 		view.setImageBitmap(bm);
 		return this;
+	}
+
+	public int getPosition() {
+		return position;
 	}
 }

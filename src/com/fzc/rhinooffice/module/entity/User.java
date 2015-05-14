@@ -11,11 +11,11 @@ import java.io.Serializable;
 public class User{
 	
 	//用户名
-	public String A_USER_NAME;
+	public String a_user_name;
 	//密码
 	public String pwd;
 	//需返回的登录标记
 	public String a_sessid;
 	//有权限的菜单列表
-	public int[] A_MENU_STR;
+	public int[] a_menu_str;
 }

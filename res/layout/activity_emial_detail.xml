@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <include layout="@layout/list_header" />
+
+        <TextView
+            android:id="@+id/tv_email_subject"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_marginRight="@dimen/margin_10"
+            android:singleLine="true"
+            android:textSize="@dimen/text_17" />
+
+        <TextView
+            android:id="@+id/tv_from_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_marginRight="@dimen/margin_10"
+            android:singleLine="true"
+            android:textSize="@dimen/text_17" />
+
+        <TextView
+            android:id="@+id/tv_send_time"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_marginRight="@dimen/margin_10"
+            android:singleLine="true"
+            android:textSize="@dimen/text_17" />
+
+        <LinearLayout
+            android:id="@+id/ll_attachment_record"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_marginRight="@dimen/margin_10"
+                android:text="附件列表："
+                android:textSize="@dimen/text_17"
+                android:textStyle="bold" />
+
+            <include layout="@layout/line_gray_write" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/attachment_record_bg"
+                android:orientation="vertical" >
+
+                <GridView
+                    android:id="@+id/gv_attachment"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" 
+                    android:numColumns="2"
+                    android:verticalSpacing="@dimen/height_10"
+                    android:horizontalSpacing="@dimen/height_10"
+                    android:stretchMode="columnWidth"/>
+            </LinearLayout>
+
+            <include layout="@layout/line_write_gray" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_email_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_marginRight="@dimen/margin_10"
+            android:textSize="@dimen/text_17" />
+    </LinearLayout>
+
+</ScrollView>

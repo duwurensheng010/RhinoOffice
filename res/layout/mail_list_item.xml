@@ -22,13 +22,15 @@
 
             <TextView
                 android:id="@+id/tv_01"
-                android:layout_width="@dimen/height_100"
+                android:layout_width="@dimen/height_50"
                 android:layout_height="@dimen/height_50"
                 android:paddingLeft="@dimen/padding_5"
                 android:paddingRight="@dimen/padding_5"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-			
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_15"/>
+                
             <View 
                 android:layout_width="0.5dp"
                 android:layout_height="match_parent"
@@ -44,8 +46,10 @@
                 android:layout_height="@dimen/height_50"
                 android:paddingLeft="@dimen/padding_5"
                 android:paddingRight="@dimen/padding_5"
+                android:singleLine="true"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15" />
 			
             <View 
                 android:layout_width="0.5dp"
@@ -62,8 +66,10 @@
                 android:layout_height="@dimen/height_50"
                 android:paddingLeft="@dimen/padding_5"
                 android:paddingRight="@dimen/padding_5"
+                android:singleLine="true"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15" />
 			
             <View 
                 android:layout_width="0.5dp"
@@ -76,12 +82,14 @@
             
             <TextView
                 android:id="@+id/tv_04"
-                android:layout_width="@dimen/height_100"
+                android:layout_width="@dimen/height_150"
                 android:layout_height="@dimen/height_50"
                 android:paddingLeft="@dimen/padding_5"
                 android:paddingRight="@dimen/padding_5"
+                android:singleLine="true"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15" />
         </LinearLayout>
     </com.fzc.rhinooffice.common.view.HScrollView>
 

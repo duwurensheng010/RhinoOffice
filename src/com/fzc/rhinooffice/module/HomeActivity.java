@@ -111,8 +111,8 @@ public class HomeActivity extends FragmentActivity implements
 	@ViewInject(R.id.iv_user_icon)
 	private ImageView iv_user_icon;
 
-	@ViewInject(R.id.iv_registration)
-	private ImageView iv_registration;
+	@ViewInject(R.id.tv_registration)
+	private TextView tv_registration;
 
 	@ViewInject(R.id.container)
 	private LinearLayout container;
@@ -239,7 +239,7 @@ public class HomeActivity extends FragmentActivity implements
 	//登录成功后初始化显示信息
 	private void initUI() {
 		//System.out.println("------homeActivity---initUI---");
-		tv_user_name.setText(SysApplication.user.A_USER_NAME);
+		tv_user_name.setText(SysApplication.user.a_user_name);
 		workbenchFragment.initUI();
 		
 	}
@@ -263,7 +263,7 @@ public class HomeActivity extends FragmentActivity implements
 				} else {
 					tran.show(workbenchFragment);
 				}
-				iv_registration.setVisibility(View.VISIBLE);
+				tv_registration.setVisibility(View.VISIBLE);
 				break;
 
 			case R.id.rb_news:
@@ -273,7 +273,7 @@ public class HomeActivity extends FragmentActivity implements
 				} else {
 					tran.show(newsFragment);
 				}
-				iv_registration.setVisibility(View.GONE);
+				tv_registration.setVisibility(View.GONE);
 				break;
 			case R.id.rb_office:
 				if (officeFragment == null) {
@@ -282,7 +282,7 @@ public class HomeActivity extends FragmentActivity implements
 				} else {
 					tran.show(officeFragment);
 				}
-				iv_registration.setVisibility(View.GONE);
+				tv_registration.setVisibility(View.GONE);
 				break;
 			case R.id.rb_business:
 				if (businessFragment == null) {
@@ -291,7 +291,7 @@ public class HomeActivity extends FragmentActivity implements
 				} else {
 					tran.show(businessFragment);
 				}
-				iv_registration.setVisibility(View.GONE);
+				tv_registration.setVisibility(View.GONE);
 				break;
 
 			case R.id.rb_mall:
@@ -301,7 +301,7 @@ public class HomeActivity extends FragmentActivity implements
 				} else {
 					tran.show(mallFragment);
 				}
-				iv_registration.setVisibility(View.GONE);
+				tv_registration.setVisibility(View.GONE);
 				break;
 			}
 			tran.commit();
@@ -314,16 +314,10 @@ public class HomeActivity extends FragmentActivity implements
 		dl.open();
 	}
 
-	@OnClick(R.id.iv_registration)
+	@OnClick(R.id.tv_registration)
 	private void registration(View v) {
 		LogUtils.i("---签到----");
-		/*if(!SysApplication.isLogin){
-			mIntent = new Intent(this,LoginActivity.class);
-			startActivity(mIntent);
-			return;
-		}*/
 		
-		// dl.open();
 	}
 
 	@OnClick(R.id.ll_personal_settings)
