@@ -3,13 +3,17 @@ package com.fzc.rhinooffice.module.entity;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * @author Administrator
+ *
+ */
 public class Email implements Serializable{
 
 	// 新邮件数量
-	public int email_sl;
+	public String email_sl;
 
 	// 邮件ID
-	public int email_id;
+	public String email_id;
 	
 	//发件人ID
 	public String from_id;
@@ -27,11 +31,12 @@ public class Email implements Serializable{
 	public String send_time;
 	
 	//附件数量
-	public int attachment_rows;
+	public String attachment_rows;
 	
 	//为1标记为新
-	public int is_new;
+	public String is_new;
 	
-	public List<AttachmentRecord> attachs;		//附件
+	public AttachmentRecord[] attachment_record;		//附件
 
+	public List<AttachmentRecord> attach_list;
 }

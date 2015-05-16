@@ -32,7 +32,7 @@
         <activity android:name="com.fzc.rhinooffice.module.workbench.EmailDetailActivity" />
         <activity android:name="com.fzc.rhinooffice.module.workbench.NotifyListActivity" />
         <activity android:name="com.fzc.rhinooffice.module.workbench.NotifyDetailActivity" />
-        
+        <activity android:name="com.fzc.rhinooffice.module.workbench.NewsDetailActivity" />
     </application>
 
 </manifest>

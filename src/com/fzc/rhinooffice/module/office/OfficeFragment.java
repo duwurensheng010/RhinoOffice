@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
- * °ì¹«Ò³Ãæ
+ * åŠå…¬
  * @author chao.liu
  *
  */
@@ -28,41 +28,70 @@ public class OfficeFragment extends Fragment {
 	private RelativeLayout rl_office_email;
 	
 	@ViewInject(R.id.tv_email_unread)
-	private TextView tv_email_unread;		//Î´¶ÁÄÚ²¿ÓÊ¼ş
+	private TextView tv_email_unread;		//æœªè¯»é‚®ä»¶
 	
 	@ViewInject(R.id.rl_office_notice)
 	private RelativeLayout rl_office_notice;
 	
 	@ViewInject(R.id.tv_notice_unread)
-	private TextView tv_notice_unread;		//Î´¶Á¹«¸æÍ¨Öª
+	private TextView tv_notice_unread;		//æœªè¯»é€šçŸ¥
 	
 	@ViewInject(R.id.rl_office_tidings)
 	private RelativeLayout rl_office_tidings;
 	
 	@ViewInject(R.id.tv_tidings_unread)
-	private TextView tv_tidings_unread;		//Î´¶ÁĞÂÎÅ
+	private TextView tv_tidings_unread;		//æœªè¯»æ–°é—»
 	
-	@ViewInject(R.id.ll_workflow)
-	private LinearLayout ll_workflow;		//¹¤×÷Á÷
+	@ViewInject(R.id.rl_office_workflow)
+	private RelativeLayout rl_office_workflow;
+	
+	@ViewInject(R.id.tv_office_workflow_unread)
+	private TextView tv_office_workflow_unread;		//æœªè¯»æ–°é—»
+	
+	@ViewInject(R.id.rl_office_personal_folders)
+	private RelativeLayout rl_office_personal_folders;
+	
+	@ViewInject(R.id.tv_personal_folders_unread)
+	private TextView tv_personal_folders_unread;		//æœªè¯»æ–°é—»
+	
+	@ViewInject(R.id.rl_office_internal_sms)
+	private RelativeLayout rl_office_internal_sms;
+	
+	@ViewInject(R.id.tv_internal_sms_unread)
+	private TextView tv_internal_sms_unread;		//æœªè¯»æ–°é—»
+	
+	@ViewInject(R.id.rl_office_positioning_sign)
+	private RelativeLayout rl_office_positioning_sign;
+	
+	@ViewInject(R.id.tv_office_positioning_sign_unread)
+	private TextView tv_office_positioning_sign_unread;		//æœªè¯»æ–°é—»
+	
+	@ViewInject(R.id.rl_office_funding_schedule)
+	private RelativeLayout rl_office_funding_schedule;
+	
+	@ViewInject(R.id.tv_office_funding_schedule_unread)
+	private TextView tv_office_funding_schedule_unread;		//èµ„é‡‘è®¡åˆ’è¡¨
+	
+	/*@ViewInject(R.id.ll_workflow)
+	private LinearLayout ll_workflow;		//å·¥ä½œæµ
 	
 	@ViewInject(R.id.ll_personal_folders)
-	private LinearLayout ll_personal_folders;		//¸öÈËÎÄ¼ş¹ñ
+	private LinearLayout ll_personal_folders;		//ä¸ªäººæ–‡ä»¶æŸœ
 	
 	@ViewInject(R.id.ll_internal_sms)
-	private LinearLayout ll_internal_sms;		//ÄÚ²¿¶ÌĞÅ
+	private LinearLayout ll_internal_sms;		//å†…éƒ¨çŸ­ä¿¡
 	
 	@ViewInject(R.id.ll_positioning_sign)
-	private LinearLayout ll_positioning_sign;		//¶¨Î»Ç©µ½
+	private LinearLayout ll_positioning_sign;		//å®šä½ç­¾åˆ°
 	
 	@ViewInject(R.id.ll_funding_schedule)
-	private LinearLayout ll_funding_schedule;		//×Ê½ğ¼Æ»®±í
-
+	private LinearLayout ll_funding_schedule;		//èµ„é‡‘è®¡åˆ’è¡¨
+*/
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		view = inflater.inflate(R.layout.fragment_office, container, false); // ¼ÓÔØfragment²¼¾Ö
-		ViewUtils.inject(this, view); // ×¢ÈëviewºÍÊÂ¼ş
+		view = inflater.inflate(R.layout.fragment_office, container, false); 
+		ViewUtils.inject(this, view); 
 		return view;
 	}
 	

@@ -1,5 +1,7 @@
 package com.fzc.rhinooffice.module;
 
+import java.io.StringReader;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,11 +34,13 @@ import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.JsonReader;
 import android.util.JsonToken;
 import android.view.View;
 import android.widget.Button;
@@ -44,6 +48,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+@SuppressLint("NewApi")
 @ContentView(R.layout.activity_login)
 public class LoginActivity extends BaseActivity {
 
@@ -93,12 +98,12 @@ public class LoginActivity extends BaseActivity {
 				String result = null;
 				try {
 					result = jsonObject.getString("reason");
-					SysApplication.user = JsonUtil.analysis_user(jsonObject.getString("login"));
-					SysApplication.email = JsonUtil.analysis_email(jsonObject.getString("email"));
-					SysApplication.notify = JsonUtil.analysis_notify(jsonObject.getString("notify"));
-					SysApplication.news = JsonUtil.analysis_news(jsonObject.getString("news"));
-					SysApplication.flow = JsonUtil.analysis_flow(jsonObject.getString("flow"));
-					SysApplication.business = JsonUtil.analysis_business(jsonObject.getString("busi"));
+					SysApplication.user = JsonUtil.analysis_user(StringUtil.StringToJsonReader(jsonObject.optString("login")));
+					SysApplication.email = JsonUtil.analysis_email(StringUtil.StringToJsonReader(jsonObject.optString("email")));
+					SysApplication.notify = JsonUtil.analysis_notify(StringUtil.StringToJsonReader(jsonObject.optString("notify")));
+					SysApplication.news = JsonUtil.analysis_news(StringUtil.StringToJsonReader(jsonObject.optString("news")));
+					SysApplication.flow = JsonUtil.analysis_flow(StringUtil.StringToJsonReader(jsonObject.optString("flow")));
+					SysApplication.business = JsonUtil.analysis_business(StringUtil.StringToJsonReader(jsonObject.optString("busi")));
 					
 					LogUtils.i(SysApplication.a_sessid +" login success!");
 				} catch (JSONException e) {

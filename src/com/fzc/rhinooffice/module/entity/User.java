@@ -1,6 +1,7 @@
 package com.fzc.rhinooffice.module.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 用户信息
@@ -9,7 +10,10 @@ import java.io.Serializable;
  */
 
 public class User{
-	
+	//商城网址
+	public String mallurl;
+	//用户ID/登录的帐号
+	public String userid;
 	//用户名
 	public String a_user_name;
 	//密码
@@ -17,5 +21,5 @@ public class User{
 	//需返回的登录标记
 	public String a_sessid;
 	//有权限的菜单列表
-	public int[] a_menu_str;
+	public List<String> a_menu_str;
 }

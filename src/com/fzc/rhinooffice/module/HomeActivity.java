@@ -1,5 +1,7 @@
 package com.fzc.rhinooffice.module;
 
+import java.io.StringReader;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,6 +34,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.nineoldandroids.view.ViewHelper;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -39,6 +42,7 @@ import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.JsonReader;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
@@ -58,6 +62,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
  * 
  */
 
+@SuppressLint("NewApi")
 @ContentView(R.layout.reddotface_view)
 public class HomeActivity extends FragmentActivity implements
 		OnCheckedChangeListener {
@@ -153,13 +158,13 @@ public class HomeActivity extends FragmentActivity implements
 				String result = null;
 				try {
 					result = jsonObject.getString("reason");
-					//SysApplication.a_sessid = jsonObject.getJSONObject("login").getString("a_sessid");
-					SysApplication.user = JsonUtil.analysis_user(jsonObject.getString("login"));
-					SysApplication.email = JsonUtil.analysis_email(jsonObject.getString("email"));
-					SysApplication.notify = JsonUtil.analysis_notify(jsonObject.getString("notify"));
-					SysApplication.news = JsonUtil.analysis_news(jsonObject.getString("news"));
-					SysApplication.flow = JsonUtil.analysis_flow(jsonObject.getString("flow"));
-					SysApplication.business = JsonUtil.analysis_business(jsonObject.getString("busi"));
+					
+					SysApplication.user = JsonUtil.analysis_user(StringUtil.StringToJsonReader(jsonObject.optString("login")));
+					SysApplication.email = JsonUtil.analysis_email(StringUtil.StringToJsonReader(jsonObject.optString("email")));
+					SysApplication.notify = JsonUtil.analysis_notify(StringUtil.StringToJsonReader(jsonObject.optString("notify")));
+					SysApplication.news = JsonUtil.analysis_news(StringUtil.StringToJsonReader(jsonObject.optString("news")));
+					SysApplication.flow = JsonUtil.analysis_flow(StringUtil.StringToJsonReader(jsonObject.optString("flow")));
+					SysApplication.business = JsonUtil.analysis_business(StringUtil.StringToJsonReader(jsonObject.optString("busi")));
 					
 					LogUtils.i(SysApplication.a_sessid +" login success!");
 				} catch (JSONException e) {

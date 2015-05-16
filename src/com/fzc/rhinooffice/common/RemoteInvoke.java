@@ -316,4 +316,62 @@ public class RemoteInvoke {
 				});
 	}
 	
+	
+	public static void news_detail(final Handler mHandler,String news_id){
+		LogUtils.i("news_detail--news_id-->>"+news_id);
+		HttpUtils http = new HttpUtils();
+		RequestParams params = getRequestHead(false);
+		JSONObject jsonObject = new JSONObject();
+		try {
+			jsonObject.put("news_id", news_id);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		params.addBodyParameter("data", jsonObject.toString());
+		http.configSoTimeout(AppConfig.HTTP_TIMEOUT);	//设置请求超时
+		http.send(HttpRequest.HttpMethod.POST,
+				"http://www.gzlxsoft.com:899/app/news/detail/", params,
+				new RequestCallBack<String>() {
+			
+					Message msg = mHandler.obtainMessage();
+					
+					@Override
+					public void onFailure(HttpException error, String result) {
+						msg.what = -5;
+						msg.obj = result;
+						mHandler.sendMessage(msg);
+					}
+
+					@Override
+					public void onSuccess(ResponseInfo<String> responseInfo) {
+						
+						if (responseInfo != null) {
+							LogUtils.i("notify_detail->>"+responseInfo.result);
+							JSONObject jsonObject = null;
+							try {
+								jsonObject = new JSONObject(responseInfo.result);
+								if((jsonObject.getInt("state"))==0){
+									msg.what = -5;
+									msg.obj = jsonObject.getString("reason");
+								}else{
+									msg.what = 5;
+									msg.obj = jsonObject;
+								}
+							} catch (JSONException e) {
+								jsonObject = new JSONObject();
+								e.printStackTrace();
+							}finally{
+								mHandler.sendMessage(msg);
+							}
+							
+						}else{
+							msg.what = -5;
+							msg.obj = "获取新闻详情失败！";
+							mHandler.sendMessage(msg);
+						} 
+
+					}
+				});
+	}
+	
 }

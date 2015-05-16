@@ -23,6 +23,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import com.fzc.rhinooffice.R;
 import com.fzc.rhinooffice.common.RemoteInvoke;
 import com.fzc.rhinooffice.common.utils.JsonUtil;
+import com.fzc.rhinooffice.common.utils.StringUtil;
 import com.fzc.rhinooffice.common.view.CustomProgress;
 import com.fzc.rhinooffice.common.view.HScrollView;
 import com.fzc.rhinooffice.common.view.InterceptScrollContainer;
@@ -120,8 +121,8 @@ public class NotifyListActivity extends BaseActivity implements OnItemClickListe
 					try {
 						if (jsonObject.getString("record") != null
 								&& !"".equals(jsonObject.getString("record"))) {
-							notifyList = JsonUtil.analysis_notifys(jsonObject
-									.getString("record"));
+							notifyList = JsonUtil.analysis_notifys(StringUtil.StringToJsonReader(jsonObject
+									.getString("record")));
 							if (notifyList != null && notifyList.size() != 0) {
 								initAdapter();
 							} else {
@@ -219,17 +220,13 @@ public class NotifyListActivity extends BaseActivity implements OnItemClickListe
 		}
 	};
 	
-	@OnItemClick(R.id.lv_mails)
-	private void emailClick(View v){
-		
-	}
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		mIntent = new Intent(this,NotifyDetailActivity.class);
 		mIntent.putExtra("notify_id", notifyList.get(position).notify_id);
-		mIntent.putExtra("notify_id", 7);	//测试
+		//mIntent.putExtra("notify_id", 7);	//测试
 		startActivity(mIntent);
 	}
 	

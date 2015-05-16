@@ -1,15 +1,18 @@
 package com.fzc.rhinooffice.module.workbench;
 
+import java.io.StringReader;
 import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.JsonReader;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -36,6 +39,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.lidroid.xutils.view.annotation.event.OnItemClick;
 
+@SuppressLint("NewApi")
 @ContentView(R.layout.activity_mail_list)
 public class EmailListActivity extends BaseActivity implements OnItemClickListener {
 
@@ -116,8 +120,8 @@ public class EmailListActivity extends BaseActivity implements OnItemClickListen
 					try {
 						if (jsonObject.getString("record") != null
 								&& !"".equals(jsonObject.getString("record"))) {
-							emailList = JsonUtil.analysis_emails(jsonObject
-									.getString("record"));
+							emailList = JsonUtil.analysis_emails(new JsonReader(new StringReader(jsonObject.optString("record"))));
+									
 							if (emailList != null && emailList.size() != 0) {
 								initAdapter();
 							} else {
@@ -215,17 +219,13 @@ public class EmailListActivity extends BaseActivity implements OnItemClickListen
 		}
 	};
 	
-	@OnItemClick(R.id.lv_mails)
-	private void emailClick(View v){
-		
-	}
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		mIntent = new Intent(this,EmailDetailActivity.class);
 		mIntent.putExtra("email_id", emailList.get(position).email_id);
-		mIntent.putExtra("email_id", 16);	//测试
+		//mIntent.putExtra("email_id", "16");	//测试
 		startActivity(mIntent);
 	}
 	

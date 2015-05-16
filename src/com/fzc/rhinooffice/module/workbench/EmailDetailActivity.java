@@ -1,12 +1,18 @@
 package com.fzc.rhinooffice.module.workbench;
 
+import java.io.StringReader;
+import java.util.Arrays;
+import java.util.List;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.JsonReader;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -32,6 +38,7 @@ import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 
+@SuppressLint("NewApi")
 @ContentView(R.layout.activity_emial_detail)
 public class EmailDetailActivity extends BaseActivity {
 
@@ -69,6 +76,8 @@ public class EmailDetailActivity extends BaseActivity {
 	private Email email;
 	
 	private CommonAdapter<AttachmentRecord> commonAdapter;
+	
+	private List<AttachmentRecord> attachList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -95,12 +104,14 @@ public class EmailDetailActivity extends BaseActivity {
 					try {
 
 						if (!StringUtil.isEmpty(jsonObject.getString("record"))) {
-							email = JsonUtil.analysis_email(jsonObject
-									.getString("record"));
+							String str = "{\"from_id\":\"admin\",\"from_name\":\"管理员\",\"subject\":\"APP邮件测试\",\"content\":\"APP邮件测试\",\"send_time\":\"2015-04-29 17:03:23\",\"attachment_rows\":\"0\",\"attachment_record\":NULL}";
+							
+							//email = JsonUtil.analysis_email(str);
+							email = JsonUtil.analysis_email(new JsonReader(new StringReader(jsonObject.optString("record"))));
 							//附件json数据
-							String attach_str = jsonObject.getString(jsonObject.getJSONObject("record").getString("attachment_record"));
-							if (StringUtil.isEmpty(attach_str)) {
-								email.attachs = JsonUtil.analysis_attachment_record(attach_str);
+							String attach_str = jsonObject.getJSONObject("record").optString("attachment_record");
+							if (!StringUtil.isEmpty(attach_str)) {
+								attachList = JsonUtil.analysis_attachment_record(attach_str);
 							}
 							initUI();
 						}
@@ -127,31 +138,45 @@ public class EmailDetailActivity extends BaseActivity {
 	private void getEmailDetail() {
 		mIntent = getIntent();
 		customProgress.show();
-		RemoteInvoke.email_detail(mHandler, mIntent.getIntExtra("email_id", 16));
+		if(StringUtil.isEmpty(mIntent.getStringExtra("email_id"))){
+			StringUtil.showToast(this, "系统错误！");
+			finish();
+		}else{
+			int emailId = Integer.parseInt(mIntent.getStringExtra("email_id"));
+			RemoteInvoke.email_detail(mHandler, emailId);
+		}
+		
+		
 	}
 	
 	private void initUI() {
-		
+		LogUtils.i("-email->>"+email);
 		if(StringUtil.isEmpty(email.subject)){
-			tv_email_subject.setText("邮件标题：未知标题");
+			tv_email_subject.setText("邮件标题：\u3000\u3000未知标题");
 		}else{
-			tv_email_subject.setText("邮件标题："+email.subject);
+			tv_email_subject.setText("邮件标题：\u3000\u3000"+email.subject);
 		}
 		
 		if(StringUtil.isEmpty(email.from_name)){
-			tv_from_name.setText("发件人：未知发件人");
+			tv_from_name.setText("发  件  人：\u3000\u3000未知发件人");
 		}else{
-			tv_from_name.setText("发件人："+email.from_name);
+			tv_from_name.setText("发  件  人：\u3000\u3000"+email.from_name);
+		}
+		
+		if(StringUtil.isEmpty(email.send_time)){
+			tv_send_time.setText("发件时间：\u3000\u3000未知");
+		}else{
+			tv_send_time.setText("发件时间：\u3000\u3000"+email.send_time);
 		}
 		
 		if(StringUtil.isEmpty(email.content)){
 			tv_email_content.setText("无");
 		}else{
-			tv_email_content.setText(email.content);
+			tv_email_content.setText("\u3000\u3000"+email.content);
 		}
 		
 		//附件
-		if(email.attachs!=null && email.attachs.size()!=0){
+		if(email.attach_list!=null && email.attach_list.size()!=0){
 			ll_attachment_record.setVisibility(View.VISIBLE);
 			initAdapter();
 		}else{
@@ -161,7 +186,7 @@ public class EmailDetailActivity extends BaseActivity {
 	
 	private void initAdapter(){
 		if(commonAdapter==null){
-			commonAdapter = new CommonAdapter<AttachmentRecord>(this, email.attachs,R.layout.attachment_record_item) {
+			commonAdapter = new CommonAdapter<AttachmentRecord>(this,email.attach_list,R.layout.attachment_record_item) {
 
 				@Override
 				public void convert(ViewHolder holder, AttachmentRecord item) {
@@ -169,6 +194,7 @@ public class EmailDetailActivity extends BaseActivity {
 					holder.setText(R.id.attach_name, item.name);
 				}
 			};
+			gv_attachment.setAdapter(commonAdapter);
 		}else{
 			commonAdapter.notifyDataSetChanged();
 		}

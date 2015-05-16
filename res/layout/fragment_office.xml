@@ -146,149 +146,246 @@
             android:src="@drawable/office_horizontal_line" />
 
         <LinearLayout
-            android:id="@+id/ll_workflow"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/padding_10" >
+            android:layout_height="@dimen/height_120"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:id="@+id/rl_office_workflow"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_office_workflow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/office_workflow" />
+
+                <TextView
+                    android:id="@+id/tv_office_workflow_unread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/iv_office_workflow"
+                    android:layout_alignTop="@+id/iv_office_workflow"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/office_reddot"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/write"
+                    android:textSize="@dimen/text_13" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_office_workflow"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:text="@string/work_flow"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_13" />
+            </RelativeLayout>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:src="@drawable/office_workflow" />
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/office_vertical_line" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_5"
-                android:text="@string/work_flow"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_13" />
+            <RelativeLayout
+                android:id="@+id/rl_office_personal_folders"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_office_personal_folders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/office_personal_folders" />
+
+                <TextView
+                    android:id="@+id/tv_personal_folders_unread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/iv_office_personal_folders"
+                    android:layout_alignTop="@+id/iv_office_personal_folders"
+                    android:background="@drawable/office_reddot"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/write"
+                    android:textSize="@dimen/text_13" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_office_personal_folders"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:text="@string/personal_folders"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_13" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/office_vertical_line" />
+
+            <RelativeLayout
+                android:id="@+id/rl_office_internal_sms"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_office_internal_sms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/office_internal_sms" />
+
+                <TextView
+                    android:id="@+id/tv_internal_sms_unread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/iv_office_internal_sms"
+                    android:layout_alignTop="@+id/iv_office_internal_sms"
+                    android:background="@drawable/office_reddot"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/write"
+                    android:textSize="@dimen/text_13" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_office_internal_sms"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:text="@string/internal_sms"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_13" />
+            </RelativeLayout>
         </LinearLayout>
-
+		
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="0.5dp"
+            android:layout_height="1dp"
             android:scaleType="fitXY"
-            android:src="@drawable/divider_line" />
-
+            android:src="@drawable/office_horizontal_line" />
+        
         <LinearLayout
-            android:id="@+id/ll_personal_folders"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/padding_10" >
+            android:layout_height="@dimen/height_120"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:id="@+id/rl_office_positioning_sign"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_office_positioning_sign"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/office_positioning_sign" />
+
+                <TextView
+                    android:id="@+id/tv_office_positioning_sign_unread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/iv_office_positioning_sign"
+                    android:layout_alignTop="@+id/iv_office_positioning_sign"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/office_reddot"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/write"
+                    android:textSize="@dimen/text_13" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_office_positioning_sign"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:text="@string/positioning_sign"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_13" />
+            </RelativeLayout>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:src="@drawable/office_personal_folders" />
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/office_vertical_line" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_5"
-                android:text="@string/personal_folders"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_13" />
-        </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/rl_office_funding_schedule"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" >
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/divider_line" />
+                <ImageView
+                    android:id="@+id/iv_office_funding_schedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/office_funding_schedule" />
 
-        <LinearLayout
-            android:id="@+id/ll_internal_sms"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/padding_10" >
+                <TextView
+                    android:id="@+id/tv_office_funding_schedule_unread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/iv_office_funding_schedule"
+                    android:layout_alignTop="@+id/iv_office_funding_schedule"
+                    android:background="@drawable/office_reddot"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/write"
+                    android:textSize="@dimen/text_13" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:src="@drawable/office_internal_sms" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_5"
-                android:text="@string/internal_sms"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_13" />
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/divider_line" />
-
-        <LinearLayout
-            android:id="@+id/ll_positioning_sign"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/padding_10" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_office_funding_schedule"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:text="@string/funding_schedule"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_13" />
+            </RelativeLayout>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:src="@drawable/office_positioning_sign" />
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/office_vertical_line" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_5"
-                android:text="@string/positioning_sign"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_13" />
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" >
+
+            </RelativeLayout>
         </LinearLayout>
-
+        
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="0.5dp"
+            android:layout_height="1dp"
             android:scaleType="fitXY"
-            android:src="@drawable/divider_line" />
-
-        <LinearLayout
-            android:id="@+id/ll_funding_schedule"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/padding_10" >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:src="@drawable/office_funding_schedule" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_5"
-                android:text="@string/funding_schedule"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_13" />
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/divider_line" />
+            android:src="@drawable/office_horizontal_line" />
     </LinearLayout>
 
 </ScrollView>

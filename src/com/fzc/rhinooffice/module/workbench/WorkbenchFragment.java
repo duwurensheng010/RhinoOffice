@@ -104,32 +104,49 @@ public class WorkbenchFragment extends Fragment {
 	//邮件列表
 	@OnClick(R.id.ll_email)
 	private void checkEmail(View v) {
-
+		if(SysApplication.email==null || SysApplication.email.email_sl==null || "0".equals(SysApplication.email.email_sl)){
+			StringUtil.showToast(getActivity(), "无未读邮件！");
+			return;
+		}
 		if (mIntent == null) {
 			mIntent = new Intent();
 		}
-		mIntent.setClass(getActivity(), EmailListActivity.class);
+		mIntent.putExtra("email_id", SysApplication.email.email_id);
+		mIntent.setClass(getActivity(), EmailDetailActivity.class);
 		startActivity(mIntent);
 
 	}
 	
 	//公告通知
 	@OnClick(R.id.ll_notice)
-	private void checkNotice(View v) {
+	private void checkNoticfy(View v) {
+		
+		if(SysApplication.notify==null || SysApplication.notify.notify_sl==null || "0".equals(SysApplication.notify.notify_sl)){
+			StringUtil.showToast(getActivity(), "无未读公告信息！");
+			return;
+		}
+		
 		if (mIntent == null) {
 			mIntent = new Intent();
 		}
-		mIntent.setClass(getActivity(), NotifyListActivity.class);
+		mIntent.putExtra("notify_id", SysApplication.notify.notify_id);
+		mIntent.setClass(getActivity(), NotifyDetailActivity.class);
 		startActivity(mIntent);
 	}
 	
 	//新闻
 	@OnClick(R.id.ll_tidings)
 	private void checkTidings(View v) {
+		if(SysApplication.news==null || SysApplication.news.news_sl==null || "0".equals(SysApplication.news.news_sl)){
+			StringUtil.showToast(getActivity(), "无未读新闻信息！");
+			return;
+		}
+		
 		if (mIntent == null) {
 			mIntent = new Intent();
 		}
-		mIntent.setClass(getActivity(), NotifyListActivity.class);
+		mIntent.putExtra("news_id", SysApplication.news.news_id);
+		mIntent.setClass(getActivity(), NewsDetailActivity.class);
 		startActivity(mIntent);
 	}
 	
@@ -146,9 +163,9 @@ public class WorkbenchFragment extends Fragment {
 	public void initUI() {
 		Email email = SysApplication.email;
 
-		if (email.email_sl > 0) {
+		if (!"0".equals(email.email_sl)) {
 			tv_email_unread.setVisibility(View.VISIBLE);
-			tv_email_unread.setText(email.email_sl + "");
+			tv_email_unread.setText(email.email_sl);
 		} else {
 			tv_email_unread.setVisibility(View.GONE);
 		}
@@ -167,9 +184,9 @@ public class WorkbenchFragment extends Fragment {
 
 		Notify notify = SysApplication.notify;
 
-		if (notify.notify_sl > 0) {
+		if (!"0".equals(notify.notify_sl)) {
 			tv_notice_unread.setVisibility(View.VISIBLE);
-			tv_notice_unread.setText(notify.notify_sl + "");
+			tv_notice_unread.setText(notify.notify_sl);
 		} else {
 			tv_notice_unread.setVisibility(View.GONE);
 		}
@@ -188,9 +205,9 @@ public class WorkbenchFragment extends Fragment {
 
 		News news = SysApplication.news;
 
-		if (news.news_sl > 0) {
+		if (!"0".equals(news.news_sl)) {
 			tv_tidings_unread.setVisibility(View.VISIBLE);
-			tv_tidings_unread.setText(news.news_sl + "");
+			tv_tidings_unread.setText(news.news_sl);
 		} else {
 			tv_tidings_unread.setVisibility(View.GONE);
 		}
@@ -208,7 +225,7 @@ public class WorkbenchFragment extends Fragment {
 		}
 
 		Flow flow = SysApplication.flow;
-		if (flow.flow_sl > 0) {
+		if (!"0".equals(flow.flow_sl)) {
 			tv_workflow_unread.setVisibility(View.VISIBLE);
 			tv_workflow_unread.setText(flow.flow_sl + "");
 		} else {
@@ -228,9 +245,9 @@ public class WorkbenchFragment extends Fragment {
 		}
 		
 		Business business = SysApplication.business;
-		tv_marketing_account.setText(business.dryxe/10000+"万");
+		tv_marketing_account.setText((Integer.parseInt(business.dryxe)/10000)+"万");
 		tv_station.setText(business.xsts+"台");
-		tv_month_completion_rate.setText(business.rwydwcl*100+"%");
+		tv_month_completion_rate.setText(Float.parseFloat(business.rwydwcl)*100+"%");
 
 	}
 

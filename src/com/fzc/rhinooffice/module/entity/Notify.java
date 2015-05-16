@@ -9,13 +9,13 @@ import java.io.Serializable;
  * 
  */
 
-public class Notify implements Serializable {
+public class Notify {
 
 	// 新通知数量
-	public int notify_sl;
+	public String notify_sl;
 
 	// 记录ID，不显示，打开明细需提供
-	public int notify_id;
+	public String notify_id;
 
 	// 通知标题
 	public String subject;

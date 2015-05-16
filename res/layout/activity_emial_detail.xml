@@ -16,6 +16,7 @@
             android:id="@+id/tv_email_subject"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
             android:layout_marginLeft="@dimen/margin_10"
             android:layout_marginRight="@dimen/margin_10"
             android:singleLine="true"
@@ -25,6 +26,7 @@
             android:id="@+id/tv_from_name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
             android:layout_marginLeft="@dimen/margin_10"
             android:layout_marginRight="@dimen/margin_10"
             android:singleLine="true"
@@ -34,6 +36,7 @@
             android:id="@+id/tv_send_time"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
             android:layout_marginLeft="@dimen/margin_10"
             android:layout_marginRight="@dimen/margin_10"
             android:singleLine="true"
@@ -41,6 +44,8 @@
 
         <LinearLayout
             android:id="@+id/ll_attachment_record"
+            android:layout_marginTop="@dimen/margin_10"
+            android:layout_marginBottom="@dimen/margin_10"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
@@ -50,11 +55,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_10"
                 android:layout_marginRight="@dimen/margin_10"
+                android:layout_marginBottom="@dimen/margin_10"
                 android:text="附件列表："
                 android:textSize="@dimen/text_17"
                 android:textStyle="bold" />
 
-            <include layout="@layout/line_gray_write" />
+            <include
+                layout="@layout/line_gray_write" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -69,6 +76,7 @@
                     android:numColumns="2"
                     android:verticalSpacing="@dimen/height_10"
                     android:horizontalSpacing="@dimen/height_10"
+                    
                     android:stretchMode="columnWidth"/>
             </LinearLayout>
 
@@ -79,6 +87,7 @@
             android:id="@+id/tv_email_content"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
             android:layout_marginLeft="@dimen/margin_10"
             android:layout_marginRight="@dimen/margin_10"
             android:textSize="@dimen/text_17" />

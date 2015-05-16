@@ -11,18 +11,18 @@ import java.io.Serializable;
 public class Flow implements Serializable{
 
 	//待办工作流数量
-	public int flow_sl;
+	public String flow_sl;
 
 	// 打开工作流要返回的
-	public int run_id;
+	public String run_id;
 
 	// 打开工作流要返回的
-	public int prcs_id;
+	public String prcs_id;
 
 	// 打开工作流要返回的
-	public int flow_prcs;
+	public String flow_prcs;
 	
-	public int flow_id;
+	public String flow_id;
 	
 	//工作流标题
 	public String subject;

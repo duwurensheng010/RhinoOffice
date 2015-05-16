@@ -5,11 +5,11 @@ import java.io.Serializable;
 public class Business implements Serializable{
 
 	// 当日营业额
-	public int dryxe;
+	public String dryxe;
 
 	// 销售台数
-	public int xsts;
+	public String xsts;
 
 	// 任务完成率
-	public float rwydwcl;
+	public String rwydwcl;
 }
